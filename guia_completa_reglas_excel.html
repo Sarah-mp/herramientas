@@ -1,0 +1,649 @@
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+  }
+
+  .wrap {
+    padding: 1rem 0;
+    max-width: 740px;
+    font-family: var(--font-sans)
+  }
+
+  h1 {
+    font-size: 20px;
+    font-weight: 499;
+    color: var(--color-text-primary);
+    margin-bottom: 4px
+  }
+
+  .subtitle {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1.5rem
+  }
+
+  .hero {
+    background: var(--color-background-secondary);
+    border-radius: var(--border-radius-lg);
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem
+  }
+
+  .hero-icon {
+    font-size: 36px;
+    flex-shrink: 0
+  }
+
+  .hero p {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    line-height: 1.6
+  }
+
+  .hero strong {
+    color: var(--color-text-primary)
+  }
+
+  .analogy {
+    background: #EAF3DE;
+    border-left: 3px solid #639922;
+    border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.5rem
+  }
+
+  .analogy p {
+    font-size: 14px;
+    color: #3B6D11;
+    line-height: 1.6
+  }
+
+  .analogy strong {
+    color: #27500A
+  }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem
+  }
+
+  .step-block {
+    margin-bottom: 2rem
+  }
+
+  .step-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 0.875rem
+  }
+
+  .step-num {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #EEEDFE;
+    color: #3C3489;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0
+  }
+
+  .step-header-text h2 {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    margin-bottom: 2px
+  }
+
+  .step-header-text p {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    line-height: 1.5
+  }
+
+  .img-frame {
+    background: var(--color-background-secondary);
+    border-radius: var(--border-radius-lg);
+    padding: 1rem
+  }
+
+  .img-frame img {
+    width: 100%;
+    border-radius: var(--border-radius-md);
+    border: 0.5px solid var(--color-border-tertiary);
+    display: block
+  }
+
+  .annotations {
+    margin-top: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 8px
+  }
+
+  .ann {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 12px;
+    background: var(--color-background-primary);
+    border-radius: var(--border-radius-md);
+    border: 0.5px solid var(--color-border-tertiary)
+  }
+
+  .ann-num {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0
+  }
+
+  .ann-num.purple {
+    background: #EEEDFE;
+    color: #3C3489
+  }
+
+  .ann-num.green {
+    background: #EAF3DE;
+    color: #27500A
+  }
+
+  .ann-num.amber {
+    background: #FAEEDA;
+    color: #633806
+  }
+
+  .ann-num.blue {
+    background: #E6F1FB;
+    color: #0C447C
+  }
+
+  .ann p {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    line-height: 1.5
+  }
+
+  .ann strong {
+    color: var(--color-text-primary)
+  }
+
+  .tip-bar {
+    background: #E6F1FB;
+    border-radius: var(--border-radius-md);
+    padding: 10px 14px;
+    margin-top: 0.75rem;
+    font-size: 13px;
+    color: #0C447C;
+    line-height: 1.5
+  }
+
+  .tip-bar strong {
+    color: #042C53
+  }
+
+  .divider {
+    border: none;
+    border-top: 0.5px solid var(--color-border-tertiary);
+    margin: 1.5rem 0
+  }
+
+  .examples-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 1.5rem
+  }
+
+  .ex-card {
+    background: var(--color-background-primary);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+    padding: 0.875rem;
+    cursor: pointer;
+    transition: border-color 0.15s
+  }
+
+  .ex-card:hover {
+    border-color: var(--color-border-secondary)
+  }
+
+  .ex-card.active {
+    border: 2px solid #7F77DD
+  }
+
+  .ex-card h3 {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    margin-bottom: 4px
+  }
+
+  .ex-card p {
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    line-height: 1.4
+  }
+
+  .preview-box {
+    background: var(--color-background-secondary);
+    border-radius: var(--border-radius-lg);
+    padding: 1.25rem;
+    margin-bottom: 1.5rem
+  }
+
+  .preview-label {
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    margin-bottom: 0.75rem
+  }
+
+  .excel-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px
+  }
+
+  .excel-table th {
+    background: #D3D1C7;
+    color: #2C2C2A;
+    font-weight: 500;
+    padding: 6px 10px;
+    border: 1px solid #B4B2A9;
+    text-align: center;
+    font-size: 12px
+  }
+
+  .excel-table td {
+    padding: 6px 10px;
+    border: 1px solid var(--color-border-tertiary);
+    color: var(--color-text-primary);
+    text-align: center
+  }
+
+  .excel-table tr:first-child td {
+    background: #F1EFE8;
+    color: #444441;
+    font-weight: 500
+  }
+
+  .hl-green {
+    background: #C0DD97 !important;
+    color: #27500A !important;
+    font-weight: 500
+  }
+
+  .hl-red {
+    background: #F7C1C1 !important;
+    color: #791F1F !important;
+    font-weight: 500
+  }
+
+  .hl-amber {
+    background: #FAC775 !important;
+    color: #633806 !important;
+    font-weight: 500
+  }
+
+  .hl-row-green td {
+    background: #EAF3DE !important;
+    color: #3B6D11 !important
+  }
+
+  .formula-box {
+    background: var(--color-background-primary);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+    padding: 0.75rem 1rem;
+    margin-top: 0.75rem
+  }
+
+  .formula-box .flabel {
+    font-size: 11px;
+    color: var(--color-text-secondary);
+    margin-bottom: 4px
+  }
+
+  .formula-box .formula {
+    font-family: var(--font-mono);
+    font-size: 15px;
+    color: #534AB7;
+    font-weight: 500
+  }
+
+  .formula-box .fexplain {
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    margin-top: 6px;
+    line-height: 1.5
+  }
+
+  .tips {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 1.5rem
+  }
+
+  .tip {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    background: var(--color-background-primary);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+    padding: 0.875rem
+  }
+
+  .tip-icon {
+    font-size: 15px;
+    flex-shrink: 0;
+    margin-top: 1px
+  }
+
+  .tip p {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    line-height: 1.6
+  }
+
+  .tip strong {
+    color: var(--color-text-primary)
+  }
+
+  .ask-btn {
+    background: var(--color-background-secondary);
+    border: 0.5px solid var(--color-border-secondary);
+    border-radius: var(--border-radius-md);
+    padding: 0.75rem 1.25rem;
+    font-size: 14px;
+    color: var(--color-text-primary);
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+    margin-top: 0.5rem
+  }
+
+  .ask-btn:hover {
+    background: var(--color-background-tertiary)
+  }
+
+  code {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    background: var(--color-background-secondary);
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: var(--color-text-primary)
+  }
+</style>
+
+<div class="wrap">
+
+  <h1>Reglas personalizadas en Excel</h1>
+  <p class="subtitle">Una guía completa para que cualquier persona pueda aplicarlas paso a paso, con imágenes reales del
+    proceso.</p>
+
+  <div class="hero">
+    <div class="hero-icon">💡</div>
+    <p><strong>¿Qué son?</strong> Son instrucciones que le das a Excel para que cambie automáticamente el color o estilo
+      de una celda cuando se cumple una condición que tú defines — sin que tengas que hacerlo manualmente una por una.
+    </p>
+  </div>
+
+  <div class="analogy">
+    <p><strong>Piénsalo así:</strong> Imagina que tienes una lista de pagos. ¿No sería útil que Excel coloreara en rojo
+      automáticamente los que ya están vencidos y en verde los que están al día? Eso es exactamente lo que hacen las
+      reglas personalizadas: tú defines la condición, y Excel hace el trabajo.</p>
+  </div>
+
+  <hr class="divider" />
+  <p class="section-label">Proceso paso a paso con imágenes reales</p>
+
+  <div class="step-block">
+    <div class="step-header">
+      <div class="step-num">1</div>
+      <div class="step-header-text">
+        <h2>Tu tabla de datos en Excel</h2>
+        <p>Así se ve la hoja antes de aplicar cualquier regla. Primero selecciona el rango donde quieres aplicar el
+          formato.</p>
+      </div>
+    </div>
+    <div class="img-frame">
+      <img src="WhatsApp Image 2026-04-10 at 7.03.45 AM.jpeg"
+        alt="Tabla con columnas Cliente, Fecha de pago y Estado" />
+      <div class="annotations">
+        <div class="ann">
+          <div class="ann-num purple">A</div>
+          <p><strong>Columna A:</strong> nombres de los clientes — solo referencia.</p>
+        </div>
+        <div class="ann">
+          <div class="ann-num green">B</div>
+          <p><strong>Columna B (Fecha de pago):</strong> aquí aplicaremos la fórmula para detectar fechas vencidas.
+            Selecciónala antes de empezar.</p>
+        </div>
+        <div class="ann">
+          <div class="ann-num amber">C</div>
+          <p><strong>Columna C (Estado):</strong> se puede usar para reglas basadas en texto, como "Pendiente" o
+            "Pagado".</p>
+        </div>
+      </div>
+      <div class="tip-bar"><strong>Antes de abrir Formato condicional:</strong> selecciona el rango que quieres
+        colorear, por ejemplo B2:B16. Excel aplicará la regla solo a esas celdas.</div>
+    </div>
+  </div>
+
+  <div class="step-block">
+    <div class="step-header">
+      <div class="step-num">2</div>
+      <div class="step-header-text">
+        <h2>Abre "Nueva regla de formato"</h2>
+        <p>Ve a <strong>Inicio → Formato condicional → Nueva regla.</strong> Aparece esta ventana con 6 tipos de reglas
+          disponibles.</p>
+      </div>
+    </div>
+    <div class="img-frame">
+      <img src="WhatsApp Image 2026-04-10 at 7.04.19 AM.jpeg"
+        alt="Cuadro Nueva regla de formato con primera opción seleccionada" />
+      <div class="annotations">
+        <div class="ann">
+          <div class="ann-num blue">1</div>
+          <p><strong>Lista de tipos de regla:</strong> Excel ofrece 6 opciones. La que está resaltada en azul es la
+            primera (escalas de color automáticas), pero <strong>no es la que necesitamos.</strong></p>
+        </div>
+        <div class="ann">
+          <div class="ann-num purple">2</div>
+          <p><strong>La última opción es la clave:</strong> "Utilice una fórmula que determine las celdas para aplicar
+            formato." Esta nos da control total para crear condiciones propias.</p>
+        </div>
+        <div class="ann">
+          <div class="ann-num amber">3</div>
+          <p><strong>Vista previa y botón Formato:</strong> al final del cuadro verás cómo quedará el color antes de
+            aceptar.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="step-block">
+    <div class="step-header">
+      <div class="step-num">3</div>
+      <div class="step-header-text">
+        <h2>Selecciona "Utilice una fórmula"</h2>
+        <p>Haz clic en la última opción de la lista. Aparecerá un campo en blanco donde escribirás tu condición.</p>
+      </div>
+    </div>
+    <div class="img-frame">
+      <img src="WhatsApp Image 2026-04-10 at 7.04.35 AM.jpeg"
+        alt="Cuadro con opción de fórmula seleccionada y campo vacío" />
+      <div class="annotations">
+        <div class="ann">
+          <div class="ann-num purple">1</div>
+          <p><strong>Opción seleccionada (resaltada en azul):</strong> "Utilice una fórmula que determine las celdas
+            para aplicar formato."</p>
+        </div>
+        <div class="ann">
+          <div class="ann-num green">2</div>
+          <p><strong>Campo de fórmula (vacío):</strong> aquí escribirás tu condición en el siguiente paso. Ejemplo:
+            <code>=$B2&lt;HOY()</code></p>
+        </div>
+        <div class="ann">
+          <div class="ann-num amber">3</div>
+          <p><strong>Botón "Formato...":</strong> después de escribir la fórmula, haz clic aquí para elegir el color de
+            relleno.</p>
+        </div>
+      </div>
+      <div class="tip-bar">El campo dice "Sin formato establecido" porque aún no elegiste un color. <strong>Siempre haz
+          clic en "Formato..." antes de Aceptar</strong>, de lo contrario no verás ningún cambio.</div>
+    </div>
+  </div>
+
+  <div class="step-block">
+    <div class="step-header">
+      <div class="step-num">4</div>
+      <div class="step-header-text">
+        <h2>Escribe tu fórmula y elige el color</h2>
+        <p>Así se ve con la fórmula ya escrita. En este ejemplo detecta fechas anteriores a hoy para marcarlas
+          automáticamente.</p>
+      </div>
+    </div>
+    <div class="img-frame">
+      <img src="WhatsApp Image 2026-04-10 at 7.05.01 AM.jpeg"
+        alt="Cuadro con fórmula =$B2 menor que HOY() ingresada" />
+      <div class="annotations">
+        <div class="ann">
+          <div class="ann-num purple">1</div>
+          <p><strong>Fórmula ingresada:</strong> <code>=$B2&lt;HOY()</code> — significa: "si la fecha en la columna B es
+            anterior a hoy, aplica el formato."</p>
+        </div>
+        <div class="ann">
+          <div class="ann-num blue">2</div>
+          <p><strong>El signo $ antes de B:</strong> bloquea la columna B para que Excel siempre compare esa columna en
+            toda la fila, sin moverse.</p>
+        </div>
+        <div class="ann">
+          <div class="ann-num green">3</div>
+          <p><strong>HOY():</strong> función de Excel que devuelve la fecha actual. La regla se actualiza sola cada día
+            sin que hagas nada.</p>
+        </div>
+        <div class="ann">
+          <div class="ann-num amber">4</div>
+          <p><strong>Último paso:</strong> haz clic en "Formato..." → pestaña Relleno → elige el color → Aceptar →
+            Aceptar.</p>
+        </div>
+      </div>
+      <div class="tip-bar"><strong>Resumen del flujo final:</strong> Seleccionar rango → Nueva regla → Usar fórmula →
+        Escribir condición → Formato (elegir color) → Aceptar.</div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+  <p class="section-label">Ejemplos prácticos — haz clic para ver cada caso</p>
+
+  <div class="examples-grid">
+    <div class="ex-card active" onclick="showEx('notas',this)">
+      <h3>Calificaciones</h3>
+      <p>Verde si aprueba, rojo si reprueba</p>
+    </div>
+    <div class="ex-card" onclick="showEx('ventas',this)">
+      <h3>Ventas</h3>
+      <p>Resaltar ventas sobre la meta</p>
+    </div>
+    <div class="ex-card" onclick="showEx('fechas',this)">
+      <h3>Fechas vencidas</h3>
+      <p>Marcar pagos atrasados en rojo</p>
+    </div>
+    <div class="ex-card" onclick="showEx('filas',this)">
+      <h3>Filas completas</h3>
+      <p>Colorear toda una fila por estado</p>
+    </div>
+  </div>
+
+  <div class="preview-box">
+    <div class="preview-label" id="prev-title">Vista previa: Calificaciones</div>
+    <div id="prev-table"></div>
+    <div id="prev-formula"></div>
+  </div>
+
+  <hr class="divider" />
+  <p class="section-label">Consejos importantes</p>
+
+  <div class="tips">
+    <div class="tip">
+      <div class="tip-icon">🔒</div>
+      <p><strong>El signo $ bloquea la columna:</strong> <code>$B2</code> (con $ solo en la letra) hace que Excel
+        siempre evalúe la columna B para toda la fila. <code>$B$2</code> fija tanto la columna como la fila — solo mira
+        esa celda exacta.</p>
+    </div>
+    <div class="tip">
+      <div class="tip-icon">📝</div>
+      <p><strong>La fórmula va para la primera celda del rango:</strong> escribe la condición pensando en la primera
+        celda seleccionada. Excel ajusta automáticamente la fórmula para todas las demás.</p>
+    </div>
+    <div class="tip">
+      <div class="tip-icon">🔢</div>
+      <p><strong>Puedes tener varias reglas:</strong> Excel permite múltiples reglas sobre el mismo rango. Adminístralas
+        desde <em>Formato condicional → Administrar reglas</em> y cambia su orden de prioridad.</p>
+    </div>
+    <div class="tip">
+      <div class="tip-icon">✅</div>
+      <p><strong>"Detener si es verdad":</strong> si activas esta opción en Administrar reglas, cuando una regla se
+        cumple, Excel no evalúa las siguientes. Útil para evitar que se mezclen colores.</p>
+    </div>
+  </div>
+
+  <button class="ask-btn"
+    onclick="sendPrompt('Quiero crear una regla personalizada en Excel para mi caso específico, ¿puedes ayudarme?')">Preguntarle
+    a Claude sobre mi caso específico ↗</button>
+
+</div>
+
+<script>
+  const exs = {
+    notas: { title: 'Vista previa: Calificaciones', headers: ['Estudiante', 'Nota', 'Estado'], rows: [['Ana', '85', 'Aprobado'], ['Carlos', '52', 'Reprobado'], ['Luisa', '91', 'Aprobado'], ['Pedro', '47', 'Reprobado'], ['Sofía', '78', 'Aprobado']], hlCol: 1, hlFn: (r) => parseInt(r[1]) >= 60 ? 'hl-green' : 'hl-red', formula: '=B2>=60', explain: 'Si el valor en la columna B es mayor o igual a 60 → fondo verde. Si no → fondo rojo. Aplica dos reglas separadas sobre la columna de notas.' },
+    ventas: { title: 'Vista previa: Ventas mensuales', headers: ['Vendedor', 'Ventas ($)', 'Meta ($)'], rows: [['Ramírez', '1.800', '1.500'], ['Torres', '950', '1.500'], ['Medina', '2.100', '1.500'], ['Vargas', '1.200', '1.500'], ['Reyes', '1.750', '1.500']], hlCol: 1, hlFn: (r) => parseInt(r[1].replace('.', '')) >= 1500 ? 'hl-green' : 'hl-amber', formula: '=B2>=1500', explain: 'Las ventas que superan la meta ($1.500) se pintan de verde. Las que no llegan se marcan en naranja como alerta.' },
+    fechas: { title: 'Vista previa: Fechas de pago', headers: ['Cliente', 'Fecha límite', 'Estado'], rows: [['Juan', '15/02/2026', 'Vencida'], ['María', '20/04/2026', 'Pendiente'], ['Pedro', '10/03/2026', 'Vencida'], ['Ana', '01/05/2026', 'Pendiente'], ['Luis', '05/04/2026', 'Vencida']], hlCol: 2, hlFn: (r) => r[2] === 'Vencida' ? 'hl-red' : '', formula: '=$B2<HOY()', explain: 'HOY() devuelve la fecha actual. Si la fecha de pago ya pasó, la celda se colorea roja automáticamente cada día sin que hagas nada.' },
+    filas: { title: 'Vista previa: Pedidos por estado', headers: ['Pedido', 'Cliente', 'Estado', 'Total'], rows: [['#001', 'García', 'Entregado', '$120'], ['#002', 'López', 'Pendiente', '$85'], ['#003', 'Moreno', 'Entregado', '$200'], ['#004', 'Ruiz', 'Pendiente', '$60'], ['#005', 'Díaz', 'Entregado', '$310']], rowFn: (r) => r[2] === 'Entregado', formula: '=$C2="Entregado"', explain: 'Con $ antes de C, Excel siempre evalúa la columna C (Estado). Si dice "Entregado", colorea toda la fila completa en verde.' }
+  };
+
+  function showEx(key, el) {
+    document.querySelectorAll('.ex-card').forEach(c => c.classList.remove('active'));
+    el.classList.add('active');
+    const ex = exs[key];
+    document.getElementById('prev-title').textContent = ex.title;
+    let h = '<table class="excel-table"><thead><tr>' + ex.headers.map(x => '<th>' + x + '</th>').join('') + '</tr></thead><tbody>';
+    ex.rows.forEach(r => {
+      const rowCls = ex.rowFn && ex.rowFn(r) ? 'hl-row-green' : '';
+      h += '<tr class="' + rowCls + '">';
+      r.forEach((cell, ci) => {
+        let cls = '';
+        if (!ex.rowFn && ci === ex.hlCol) cls = ex.hlFn(r);
+        h += '<td class="' + cls + '">' + cell + '</td>';
+      });
+      h += '</tr>';
+    });
+    h += '</tbody></table>';
+    document.getElementById('prev-table').innerHTML = h;
+    document.getElementById('prev-formula').innerHTML = '<div class="formula-box"><div class="flabel">Fórmula a usar</div><div class="formula">' + ex.formula + '</div><div class="fexplain">' + ex.explain + '</div></div>';
+  }
+  showEx('notas', document.querySelector('.ex-card'));
+</script>
